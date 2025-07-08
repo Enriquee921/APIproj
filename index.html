@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="map"></div>
-    
+
     <div class="weather-app">
         <div class="header">
             <div class="logo">
@@ -24,54 +26,54 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="weather-panel" id="weather-panel">
             <div class="location">
-                <h2 id="city-name">Manila</h2>
-                <p id="current-date">Loading date...</p>
+                <h2 id="city-name"></h2>
+                <p id="current-date"></p>
             </div>
             <div class="current-weather">
                 <img src="" alt="Weather icon" class="weather-icon" id="weather-icon">
-                <div class="temperature" id="temperature">--°C</div>
+                <div class="temperature" id="temperature"></div>
             </div>
             <div class="details">
                 <div class="detail-card">
                     <i class="fas fa-temperature-high"></i>
                     <div>
                         <h3>Feels Like</h3>
-                        <p id="feels-like">--°C</p>
+                        <p id="feels-like"></p>
                     </div>
                 </div>
                 <div class="detail-card">
                     <i class="fas fa-tint"></i>
                     <div>
                         <h3>Humidity</h3>
-                        <p id="humidity">--%</p>
+                        <p id="humidity"></p>
                     </div>
                 </div>
                 <div class="detail-card">
                     <i class="fas fa-wind"></i>
                     <div>
                         <h3>Wind</h3>
-                        <p id="wind-speed">-- km/h</p>
+                        <p id="wind-speed"></p>
                     </div>
                 </div>
                 <div class="detail-card">
                     <i class="fas fa-cloud"></i>
                     <div>
                         <h3>Conditions</h3>
-                        <p id="weather-description">Loading...</p>
+                        <p id="weather-description"></p>
                     </div>
                 </div>
             </div>
             <div class="forecast">
                 <h3>5-Day Forecast</h3>
                 <div class="forecast-days" id="forecast-days">
-                    <!-- Forecast items will be added here by JavaScript -->
+
                 </div>
             </div>
         </div>
-        
+
         <div class="map-controls">
             <button class="control-btn" id="satellite-btn" title="Satellite View">
                 <i class="fas fa-satellite"></i>
@@ -83,7 +85,7 @@
                 <i class="fas fa-cloud"></i>
             </button>
         </div>
-        
+
         <div class="layer-controls" id="layer-controls">
             <div class="layer-title">Map Layers</div>
             <div class="layer-options">
@@ -98,7 +100,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="time-control" id="time-control">
             <button class="time-btn" id="time-back-btn">
                 <i class="fas fa-chevron-left"></i>
@@ -111,7 +113,7 @@
                 <i class="fas fa-play"></i>
             </button>
         </div>
-        
+
         <div class="zoom-controls">
             <button class="zoom-btn" id="zoom-in-btn">
                 <i class="fas fa-plus"></i>
@@ -120,7 +122,7 @@
                 <i class="fas fa-minus"></i>
             </button>
         </div>
-        
+
         <div class="loading" id="loading">
             <div class="loading-spinner"></div>
             <p>Loading weather data...</p>
@@ -130,4 +132,5 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script type="module" src="script.js"></script>
 </body>
+
 </html>
