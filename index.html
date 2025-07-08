@@ -11,14 +11,20 @@
 </head>
 
 <body>
+
+    <!-- Map container for Leaflet map -->
     <div id="map"></div>
 
+    <!-- Main weather app container -->
     <div class="weather-app">
+        <!-- Header with logo and search bar -->
         <div class="header">
+            <!-- App logo -->
             <div class="logo">
                 <i class="fas fa-cloud-sun"></i>
                 <h1>PH Weather Map</h1>
             </div>
+            <!-- City search input -->
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search city..." id="city-input">
                 <button class="search-btn" id="search-btn">
@@ -27,15 +33,19 @@
             </div>
         </div>
 
+        <!-- Weather information panel -->
         <div class="weather-panel" id="weather-panel">
+            <!-- City and date display -->
             <div class="location">
                 <h2 id="city-name"></h2>
                 <p id="current-date"></p>
             </div>
+            <!-- Current weather icon and temperature -->
             <div class="current-weather">
                 <img src="" alt="Weather icon" class="weather-icon" id="weather-icon">
                 <div class="temperature" id="temperature"></div>
             </div>
+            <!-- Weather details: feels like, humidity, wind, conditions -->
             <div class="details">
                 <div class="detail-card">
                     <i class="fas fa-temperature-high"></i>
@@ -66,6 +76,7 @@
                     </div>
                 </div>
             </div>
+            <!-- 5-day forecast section -->
             <div class="forecast">
                 <h3>5-Day Forecast</h3>
                 <div class="forecast-days" id="forecast-days">
@@ -74,18 +85,9 @@
             </div>
         </div>
 
-        <div class="map-controls">
-            <button class="control-btn" id="satellite-btn" title="Satellite View">
-                <i class="fas fa-satellite"></i>
-            </button>
-            <button class="control-btn" id="radar-btn" title="Radar Overlay">
-                <i class="fas fa-bolt"></i>
-            </button>
-            <button class="control-btn" id="clouds-btn" title="Clouds Overlay">
-                <i class="fas fa-cloud"></i>
-            </button>
-        </div>
 
+
+        <!-- Map base layer controls (streets, satellite, terrain) -->
         <div class="layer-controls" id="layer-controls">
             <div class="layer-title">Map Layers</div>
             <div class="layer-options">
@@ -101,6 +103,7 @@
             </div>
         </div>
 
+        <!-- Time control for forecast animation -->
         <div class="time-control" id="time-control">
             <button class="time-btn" id="time-back-btn">
                 <i class="fas fa-chevron-left"></i>
@@ -114,6 +117,7 @@
             </button>
         </div>
 
+        <!-- Map zoom controls -->
         <div class="zoom-controls">
             <button class="zoom-btn" id="zoom-in-btn">
                 <i class="fas fa-plus"></i>
@@ -123,12 +127,14 @@
             </button>
         </div>
 
+        <!-- Loading spinner overlay -->
         <div class="loading" id="loading">
             <div class="loading-spinner"></div>
             <p>Loading weather data...</p>
         </div>
     </div>
 
+    <!-- Leaflet JS and main script -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script type="module" src="script.js"></script>
 </body>
