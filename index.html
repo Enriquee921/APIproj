@@ -27,6 +27,7 @@
             <!-- City search input -->
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search city..." id="city-input">
+                <div id="suggestions-container"></div>
                 <button class="search-btn" id="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -85,20 +86,30 @@
             </div>
         </div>
 
+        <div class="map-controls-container">
+            <!-- Map base layer controls (streets, satellite, terrain) -->
+            <div class="layer-controls" id="layer-controls">
+                <div class="layer-title">Map Layers</div>
+                <div class="layer-options">
+                    <button class="layer-btn active" id="streets-layer-btn">
+                        <i class="fas fa-map"></i> Streets
+                    </button>
+                    <button class="layer-btn" id="satellite-layer-btn">
+                        <i class="fas fa-satellite"></i> Satellite
+                    </button>
+                    <button class="layer-btn" id="terrain-layer-btn">
+                        <i class="fas fa-mountain"></i> Terrain
+                    </button>
+                </div>
+            </div>
 
-
-        <!-- Map base layer controls (streets, satellite, terrain) -->
-        <div class="layer-controls" id="layer-controls">
-            <div class="layer-title">Map Layers</div>
-            <div class="layer-options">
-                <button class="layer-btn active" id="streets-layer-btn">
-                    <i class="fas fa-map"></i> Streets
+            <!-- Map zoom controls -->
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoom-in-btn">
+                    <i class="fas fa-plus"></i>
                 </button>
-                <button class="layer-btn" id="satellite-layer-btn">
-                    <i class="fas fa-satellite"></i> Satellite
-                </button>
-                <button class="layer-btn" id="terrain-layer-btn">
-                    <i class="fas fa-mountain"></i> Terrain
+                <button class="zoom-btn" id="zoom-out-btn">
+                    <i class="fas fa-minus"></i>
                 </button>
             </div>
         </div>
@@ -114,16 +125,6 @@
             </button>
             <button class="time-btn" id="time-play-btn">
                 <i class="fas fa-play"></i>
-            </button>
-        </div>
-
-        <!-- Map zoom controls -->
-        <div class="zoom-controls">
-            <button class="zoom-btn" id="zoom-in-btn">
-                <i class="fas fa-plus"></i>
-            </button>
-            <button class="zoom-btn" id="zoom-out-btn">
-                <i class="fas fa-minus"></i>
             </button>
         </div>
 

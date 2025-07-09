@@ -1,4 +1,4 @@
- :root {
+:root {
      --primary: #1a73e8;
      --secondary: #0d47a1;
      --light: #f8f9fa;
@@ -72,6 +72,38 @@
      width: 400px;
      max-width: 100%;
  }
+
+ #suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(40, 41, 44, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    border: 1px solid #5f6368;
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: white;
+    border-bottom: 1px solid #5f6368;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: rgba(60, 64, 67, 0.7);
+}
 
  .search-input {
      width: 100%;
@@ -228,10 +260,22 @@
 
 
 
+ .map-controls-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+}
+
  .layer-controls {
-     position: absolute;
-     right: 20px;
-     top: 80px;
+     /* position: absolute; */
+     /* right: 20px; */
+     /* top: 80px; */
      background: rgba(32, 33, 36, 0.8);
      backdrop-filter: blur(10px);
      border-radius: 8px;
@@ -349,10 +393,10 @@
  }
 
  .zoom-controls {
-     position: absolute;
-     right: 20px;
-     top: 50%;
-     transform: translateY(-50%);
+     /* position: absolute; */
+     /* right: 20px; */
+     /* top: 50%; */
+     /* transform: translateY(-50%); */
      display: flex;
      flex-direction: column;
      gap: 10px;

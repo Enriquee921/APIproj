@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // UI element references
     const cityInput = document.getElementById('city-input');
     const searchBtn = document.getElementById('search-btn');
+    const suggestionsContainer = document.getElementById('suggestions-container');
     const weatherPanel = document.getElementById('weather-panel');
     const loadingElement = document.getElementById('loading');
 
@@ -95,6 +96,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Handle search suggestions on input
+    cityInput.addEventListener('input', function () {
+        const query = cityInput.value.trim();
+        if (query.length > 2) {
+            fetchCitySuggestions(query);
+        } else {
+            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.search-container')) {
+            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.style.display = 'none';
+        }
+    });
+
 
     // Initialize the Leaflet map and layers
     function initMap() {
@@ -149,6 +169,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Setup map controls and buttons
         setupMapControls();
+    }
+
+
+    // Fetch city suggestions from Nominatim
+    function fetchCitySuggestions(query) {
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=ph&limit=5`)
+            .then(res => res.json())
+            .then(data => {
+                displaySuggestions(data);
+            })
+            .catch(error => {
+                console.error('Error fetching suggestions:', error);
+                suggestionsContainer.innerHTML = '';
+                suggestionsContainer.style.display = 'none';
+            });
+    }
+
+    // Display city suggestions
+    function displaySuggestions(suggestions) {
+        suggestionsContainer.innerHTML = '';
+        if (suggestions.length > 0) {
+            suggestions.forEach(suggestion => {
+                const suggestionElement = document.createElement('div');
+                suggestionElement.classList.add('suggestion-item');
+                suggestionElement.textContent = suggestion.display_name;
+                suggestionElement.addEventListener('click', function () {
+                    cityInput.value = suggestion.display_name;
+                    suggestionsContainer.innerHTML = '';
+                    suggestionsContainer.style.display = 'none';
+                    clearWeatherPanel();
+                    fetchWeather(suggestion.display_name);
+                });
+                suggestionsContainer.appendChild(suggestionElement);
+            });
+            suggestionsContainer.style.display = 'block';
+        } else {
+            suggestionsContainer.style.display = 'none';
+        }
     }
 
 
